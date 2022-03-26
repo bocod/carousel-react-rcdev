@@ -8,13 +8,14 @@
   "license": "ISC",
   "repositório": {
     "tipo": "git",
-    "url": ""
+    "url": "https://github.com/riancarlosdev/carosel-react-rcdev/"
   },
   "files": [
     "dist/"
   ],
   "bugs": {
-    "email": "rcarlos@slideworks.cc"
+    "email": "rcarlos@slideworks.cc",
+    "url": "https://github.com/riancarlosdev/carosel-react-rcdev/issues"
   },
   "author": "Rian Carlos <rcarlos@slideworks.cc> (https://rianc-portfolio.vercel.app/)",
   "keywords": [
