@@ -47,6 +47,14 @@ function App() {
 }
 ```
 
+## 
+**Parametros**
+
+| Props         | type         | Descricao |
+| ------------- | ------------ | -------   |
+| `children`    | `any`     | Elemento JSX |
+| `max-width?`  |  `number` | Largura maxima do carousel  |
+
 
 ## Autores
 
