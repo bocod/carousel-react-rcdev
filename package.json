@@ -1,27 +1,27 @@
 {
-  "name": "carosel-react-rcdev",
+  "name": "carousel-react-rcdev",
   "email": "rcarlos@slideworks.cc",
-  "description": "Um component legal de carosel para ReactJs",
+  "description": "Um component legal de carousel para ReactJs",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "ISC",
   "repositório": {
     "tipo": "git",
-    "url": "https://github.com/riancarlosdev/carosel-react-rcdev/"
+    "url": "https://github.com/riancarlosdev/carousel-react-rcdev/"
   },
   "files": [
     "dist/"
   ],
   "bugs": {
     "email": "rcarlos@slideworks.cc",
-    "url": "https://github.com/riancarlosdev/carosel-react-rcdev/issues"
+    "url": "https://github.com/riancarlosdev/carousel-react-rcdev/issues"
   },
   "author": "Rian Carlos <rcarlos@slideworks.cc> (https://rianc-portfolio.vercel.app/)",
   "keywords": [
-    "carosel-react",
-    "carosel",
-    "carosel-rian-react"
+    "carousel-react",
+    "carousel",
+    "carousel-rian-react"
   ],
   "scripts": {
     "dev": "rollup -c -w",

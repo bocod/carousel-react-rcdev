@@ -4,19 +4,16 @@ import styled from 'styled-components'
 
 interface CaroselParams {
   children: any
+  max_width?: number
 }
 
-const Temporari = styled.div`
-  max-width: calc(50% - 140px);
+const ContainerRelativo = styled.div<{max?: number}>`
+  position: relative;
+  max-width: ${({max}) => `${max}px`};
   width: 100%;
 `
 
-const ContainerRelativo = styled.div`
-  position: relative;
-`
-
 const Container = styled.div`
-  background-color: red;
   max-width: 100%;
   width: 100%;
   overflow-x: scroll;
@@ -57,6 +54,7 @@ interface StateCaroselParams {
   width_carosel?: number
   width_childrens?: number
   qnt_childrens?: number
+  max_width_carousel?: number
 }
 
 /**
@@ -64,55 +62,54 @@ interface StateCaroselParams {
  * @param param0 {CaroselParams}
  * @returns {JSX.Element}
  */
-const Carosel:React.FC<CaroselParams> = ({children}: CaroselParams):JSX.Element => {
+const Carosel:React.FC<CaroselParams> = ({children, max_width}: CaroselParams):JSX.Element => {
 
-  const Carosel = useRef<HTMLDivElement>(null)
+  const Carousel = useRef<HTMLDivElement>(null)
 
-  const [stateCarosel, setStateCarosel] = useState<StateCaroselParams>()
+  const [stateCarosel, setStateCarousel] = useState<StateCaroselParams>()
 
-  const handleCarosel = useCallback(() => {
-    if(Carosel.current) {
-      const carosel = Carosel.current
-      setStateCarosel(
+  const handleCarousel = useCallback(() => {
+    if(Carousel.current) {
+      const carousel = Carousel.current
+      setStateCarousel(
         {
           ...stateCarosel, 
-          width_carosel: carosel.clientWidth,
-          qnt_childrens: carosel.children.length,
-          width_childrens: carosel.children.item(0)?.clientWidth
+          width_carosel: carousel.clientWidth,
+          qnt_childrens: carousel.children.length,
+          width_childrens: carousel.children.item(0)?.clientWidth,
+          max_width_carousel: ((carousel.children.length -1) * carousel.children.item(0)?.clientWidth!)
         }
       )
     }
-  }, [setStateCarosel])
+  }, [setStateCarousel])
 
-  const handleCaroselAction = (e:MouseEvent<HTMLButtonElement>) => {
+  const handleCarouselAction = (e:MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     
     switch (e.currentTarget.id) {
       case "next":
-        return Carosel.current!.scrollLeft += stateCarosel?.width_childrens!
+        return Carousel.current!.scrollLeft += stateCarosel?.width_childrens!
     
       case "prev":
-        return Carosel.current!.scrollLeft -= stateCarosel?.width_childrens!
+        return Carousel.current!.scrollLeft -= stateCarosel?.width_childrens!
         
       default:
         return null
     }
   }
 
-  useEffect(() => handleCarosel(), [handleCarosel])
+  useEffect(() => handleCarousel(), [handleCarousel])
 
   return (
-    <Temporari>
-      <ContainerRelativo>
-        <Container ref={Carosel}>
+    <ContainerRelativo max={max_width || stateCarosel?.max_width_carousel }>
+        <Container ref={Carousel}>
           {children}
           <div className="buttons">
-            <button onClick={handleCaroselAction} id="prev" className="prev">prev</button>
-            <button onClick={handleCaroselAction} id="next" className="next">next</button>
+            <button onClick={handleCarouselAction} id="prev" className="prev">prev</button>
+            <button onClick={handleCarouselAction} id="next" className="next">next</button>
           </div>
         </Container>
       </ContainerRelativo>
-    </Temporari>
   )
 }
 
