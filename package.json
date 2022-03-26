@@ -6,9 +6,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "ISC",
-  "repositório": {
-    "tipo": "git",
-    "url": "https://github.com/riancarlosdev/carousel-react-rcdev/"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riancarlosdev/carousel-react-rcdev.git"
   },
   "files": [
     "dist/"
