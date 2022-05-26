@@ -14,8 +14,9 @@ const ContainerRelativo = styled.div<{max?: number}>`
 `
 
 const Container = styled.div`
-  max-width: 100%;
-  width: 100%;
+  margin: auto;
+  max-width: 1200px;
+  width: 90vw;
   overflow-x: scroll;
   display: flex;
   scroll-behavior: smooth;
@@ -27,6 +28,7 @@ const Container = styled.div`
   .buttons {
     position: absolute;
     top: 50%;
+    left: 0;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
@@ -34,9 +36,10 @@ const Container = styled.div`
     width: 100%;
 
     button {
-      background: #0000004e;
+      background: #00000000;
       border: none;
-      padding: 8px 12px;
+      width: 20px;
+      height: 20px;
       cursor: pointer;
     }
 
@@ -105,8 +108,8 @@ const Carosel:React.FC<CaroselParams> = ({children, max_width}: CaroselParams):J
         <Container ref={Carousel}>
           {children}
           <div className="buttons">
-            <button onClick={handleCarouselAction} id="prev" className="prev">prev</button>
-            <button onClick={handleCarouselAction} id="next" className="next">next</button>
+            <button onClick={handleCarouselAction} id="prev" className="prev"><img src="./icons/arrow_left.svg" alt="Left arrow" /></button>
+            <button onClick={handleCarouselAction} id="next" className="next"><img src="./icons/arrow_right.svg" alt="Right arrow" /></button>
           </div>
         </Container>
       </ContainerRelativo>

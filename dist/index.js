@@ -14,8 +14,9 @@ const ContainerRelativo = styled__default["default"].div `
   width: 100%;
 `;
 const Container = styled__default["default"].div `
-  max-width: 100%;
-  width: 100%;
+  margin: auto;
+  max-width: 1200px;
+  width: 90vw;
   overflow-x: scroll;
   display: flex;
   scroll-behavior: smooth;
@@ -27,6 +28,7 @@ const Container = styled__default["default"].div `
   .buttons {
     position: absolute;
     top: 50%;
+    left: 0;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
@@ -34,9 +36,10 @@ const Container = styled__default["default"].div `
     width: 100%;
 
     button {
-      background: #0000004e;
+      background: #00000000;
       border: none;
-      padding: 8px 12px;
+      width: 20px;
+      height: 20px;
       cursor: pointer;
     }
 
@@ -75,8 +78,8 @@ const Carosel = ({ children, max_width }) => {
         React__default["default"].createElement(Container, { ref: Carousel },
             children,
             React__default["default"].createElement("div", { className: "buttons" },
-                React__default["default"].createElement("button", { onClick: handleCarouselAction, id: "prev", className: "prev" }, "prev"),
-                React__default["default"].createElement("button", { onClick: handleCarouselAction, id: "next", className: "next" }, "next")))));
+                React__default["default"].createElement("button", { onClick: handleCarouselAction, id: "prev", className: "prev" }, <img src="./icons/arrow_left.svg" alt="Left arrow" />),
+                React__default["default"].createElement("button", { onClick: handleCarouselAction, id: "next", className: "next" }, <img src="./icons/arrow_right.svg" alt="Right arrow" />)))));
 };
 
 exports["default"] = Carosel;
